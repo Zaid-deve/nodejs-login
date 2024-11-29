@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard <%= locals.username %></title>
+    <link rel="stylesheet" href="/public/styles/index.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/public/styles/index.css">
+    <style>
+        /* Custom Modal Styles */
+        .modal-content {
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: slide-up 0.3s ease-out;
+        }
+
+        .modal-header {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .btn-dark {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-dark:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        /* Preview Image Styles */
+        .preview-image {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        @keyframes slide-up {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 m-auto py-5 px-3">
+                <div class="rounded-5 p-4">
+                    <div class="text-center">
+                        <h2 class="fw-bolder mb-5">
+                            My Dashboard
+                        </h2>
+
+                        <!-- Profile Image Section with Edit Icon -->
+                        <div class="position-relative d-inline-block">
+                            <img src="<%= locals.user?.user_profile || '/public/images/istockphoto-1341046662-612x612.jpg' %>" alt="#" class="rounded-circle bg-light" height="80px" width="80px">
+                            <button class="btn btn-dark position-absolute bottom-0 end-0 rounded-circle p-0" style="height: 30px;width: 30px;" data-bs-toggle="modal" data-bs-target="#editProfileImageModal">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+
+                        <!-- Username Section with Edit Icon -->
+                        <div class="mt-3">
+                            <h3>@<%= locals.user.user_name %> 
+                                <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#editUsernameModal">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </h3>
+                            <h6><%= locals.user.user_email %></h6>
+                        </div>
+
+                            <a class="btn btn-danger fw-bolder btn-lg w-100 mt-4" href="/logout">
+                                Logout
+                            </a>
+                        <hr>
+                        <p class="text-muted">nodejslogin system</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('modal.ejs') %>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Image Preview function
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('imagePreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

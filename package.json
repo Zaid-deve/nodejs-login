@@ -1,0 +1,25 @@
+{
+  "name": "nodejslogin",
+  "version": "1.0.0",
+  "description": "an login system with nodejs and ssr",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "author": "zaid patel",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.41.1",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "formidable": "^3.5.2",
+    "jquery": "^3.7.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.4",
+    "nodemon": "^3.1.7"
+  }
+}

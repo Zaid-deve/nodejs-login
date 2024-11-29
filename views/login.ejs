@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/styles/index.css">
+
+</head>
+
+<body>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-5 m-auto">
+                <form action="#" method="POST" id="loginForm">
+                    <h1 class="fw-bolder">Login</h1>
+                    <p class="form-text">Welcome back, please login to your account.</p>
+                    <hr>
+
+                    <!-- Display Form Errors -->
+                    <div class="alert alert-danger mt-3 align-items-center formerr d-none" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <span></span>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="mt-3">
+                        <label for="email">Enter Email Address: </label>
+                        <input type="text" name="email" id="email" placeholder="e.g., abc@gmail.com" 
+                            class="form-control form-control-lg border-1 shadow-none mt-2">
+                        <div class="text-danger mt-2" id="emailErr"></div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="mt-3">
+                        <label for="password">Enter Password: </label>
+                        <input type="password" name="password" id="password" placeholder="Password" 
+                            class="form-control form-control-lg border-1 shadow-none mt-2">
+                        <div class="text-danger mt-2" id="passwordErr"></div>
+                    </div>
+
+                    <!-- Login Button -->
+                    <div class="mt-3">
+                        <button class="btn btn-dark fw-bold btn-lg w-100" type="submit" id="submitBtn">Login</button>
+                    </div>
+
+                    <!-- Signup Link -->
+                    <div class="mt-3 text-center">
+                        <p>Don't have an account? <a href="/register" class="text-dark">Sign up here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/public/js/login.js"></script>
+
+</body>
+
+</html>

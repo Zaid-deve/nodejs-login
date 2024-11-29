@@ -1,0 +1,44 @@
+<!-- Modal for Editing Profile Image -->
+<div class="modal fade" id="editProfileImageModal" tabindex="-1" aria-labelledby="editProfileImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfileImageModalLabel">Edit Profile Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/auth/update/profile" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="profileImage" class="form-label">Choose Profile Image</label>
+                        <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*" required onchange="previewImage(event)">
+                    </div>
+                    <div class="mb-3">
+                        <img id="imagePreview" class="preview-image" src="" alt="Image Preview">
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Editing Username -->
+<div class="modal fade" id="editUsernameModal" tabindex="-1" aria-labelledby="editUsernameModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editUsernameModalLabel">Edit Username</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/auth/update/username" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">New Username</label>
+                        <input type="text" class="form-control" id="username" name="username" value="<%= locals.user.user_name %>" required>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Update Username</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
