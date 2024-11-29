@@ -35,7 +35,7 @@ Make sure you have the following installed:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/login-system.git
+   git clone https://github.com/Zaid-deve/nodejs-login.git
    cd login-system
    npm install
    npm start
